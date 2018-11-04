@@ -1,0 +1,21 @@
+Approved Users
+select user_name,user_email,user_mobile from user where user_flag=1;
+
+Pending Users
+select user_name,user_email,user_mobile from user where user_flag=2;
+
+DisApproved Users
+select user_name,user_email,user_mobile from user where user_flag=5;
+
+Approved Tiffinwala
+select tiffin_name, tiffin_email, tiffin_address from tiffinwala where tiffin_flag=1;
+
+DisApproved Tiffinwala
+select tiffin_name, tiffin_email, tiffin_address from tiffinwala where tiffin_flag=2;
+
+Display Menu
+select * from tiffin_menu;
+
+Display All Order
+SELECT t1.tiffin_name, o.quantity, o.amount, o.date, u.user_name, u.user_mobile, c.city_name, t.menu_desc, t.menu_items FROM `order` as o, user as u, city as c, tiffin_menu as t, tiffinwala as t1
+where o.fk_tiffin_id=t1.tiffin_id and o.fk_user_id=u.user_id and c.city_id=o.fk_city_id and o.fk_menu_id=t.menu_id;
