@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 04, 2018 at 08:43 AM
+-- Generation Time: Nov 06, 2018 at 04:39 AM
 -- Server version: 5.5.8
 -- PHP Version: 5.3.5
 
@@ -51,6 +51,7 @@ INSERT INTO `city` (`city_id`, `city_name`) VALUES
 
 CREATE TABLE IF NOT EXISTS `order` (
   `order_id` int(11) NOT NULL AUTO_INCREMENT,
+  `address` varchar(255) DEFAULT NULL,
   `fk_tiffin_id` int(11) NOT NULL,
   `fk_user_id` int(11) NOT NULL,
   `fk_menu_id` int(11) NOT NULL,
@@ -70,8 +71,8 @@ CREATE TABLE IF NOT EXISTS `order` (
 -- Dumping data for table `order`
 --
 
-INSERT INTO `order` (`order_id`, `fk_tiffin_id`, `fk_user_id`, `fk_menu_id`, `quantity`, `amount`, `date`, `fk_city_id`, `order_flag`) VALUES
-(1, 1, 2, 1, 5, 350, '30-10-2018', 6, 1);
+INSERT INTO `order` (`order_id`, `address`, `fk_tiffin_id`, `fk_user_id`, `fk_menu_id`, `quantity`, `amount`, `date`, `fk_city_id`, `order_flag`) VALUES
+(1, 'Paldi', 1, 2, 1, 5, 350, '30-10-2018', 6, 1);
 
 -- --------------------------------------------------------
 
@@ -157,26 +158,24 @@ INSERT INTO `type` (`type_id`, `type_name`) VALUES
 
 CREATE TABLE IF NOT EXISTS `user` (
   `user_id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_address` varchar(255) DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL,
   `user_email` varchar(255) DEFAULT NULL,
   `user_flag` int(11) DEFAULT NULL,
-  `user_mobile` varchar(255) DEFAULT NULL,
+  `user_mobile` int(255) DEFAULT NULL,
   `user_name` varchar(255) DEFAULT NULL,
   `user_password` varchar(255) DEFAULT NULL,
-  `fk_city_id` int(11) NOT NULL,
-  PRIMARY KEY (`user_id`),
-  KEY `fk_city_id` (`fk_city_id`)
+  PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`user_id`, `user_address`, `user_email`, `user_flag`, `user_mobile`, `user_name`, `user_password`, `fk_city_id`) VALUES
-(1, 'Paldi, Ahmedabad', 'lalsthecake@gmail.com', 1, '9427711474', 'Vadil_Mehta', 'darshil', 1),
-(2, 'Kudasan, Gandhinagar', 'nileshthakkar@gmail.com', 1, '8905106525', 'Nilesh_Thakkar', 'nilesh', 6),
-(13, 'Priyansh', 'priyanshsheth1997@gmail.com', 1, '123', 'Priyansh', '123', 2),
-(15, 'Paldi, Ahmedabad', 'lalsthecake@gmail.com', 1, '9427711474', 'Vadil_Mehta', 'darshil', 1);
+INSERT INTO `user` (`user_id`, `image`, `user_email`, `user_flag`, `user_mobile`, `user_name`, `user_password`) VALUES
+(1, 'Paldi, Ahmedabad', 'lalsthecake@gmail.com', 1, 2147483647, 'Vadil_Mehta', 'darshil'),
+(2, 'Kudasan, Gandhinagar', 'nileshthakkar@gmail.com', 1, 2147483647, 'Nilesh_Thakkar', 'nilesh'),
+(13, 'Priyansh', 'priyanshsheth1997@gmail.com', 3, 123, 'Priyansh', '123'),
+(15, 'Paldi, Ahmedabad', 'lalsthecake@gmail.com', 2, 2147483647, 'Vadil_Mehta', 'darshil');
 
 --
 -- Constraints for dumped tables
@@ -186,10 +185,10 @@ INSERT INTO `user` (`user_id`, `user_address`, `user_email`, `user_flag`, `user_
 -- Constraints for table `order`
 --
 ALTER TABLE `order`
-  ADD CONSTRAINT `order_ibfk_8` FOREIGN KEY (`fk_city_id`) REFERENCES `city` (`city_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `order_ibfk_5` FOREIGN KEY (`fk_tiffin_id`) REFERENCES `tiffinwala` (`tiffin_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `order_ibfk_6` FOREIGN KEY (`fk_user_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `order_ibfk_7` FOREIGN KEY (`fk_menu_id`) REFERENCES `tiffin_menu` (`tiffinvo_tiffin_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `order_ibfk_7` FOREIGN KEY (`fk_menu_id`) REFERENCES `tiffin_menu` (`tiffinvo_tiffin_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `order_ibfk_8` FOREIGN KEY (`fk_city_id`) REFERENCES `city` (`city_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `tiffinwala`
@@ -204,9 +203,3 @@ ALTER TABLE `tiffinwala`
 ALTER TABLE `tiffin_menu`
   ADD CONSTRAINT `tiffin_menu_ibfk_1` FOREIGN KEY (`tiffinvo_tiffin_id`) REFERENCES `tiffinwala` (`tiffin_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `tiffin_menu_ibfk_2` FOREIGN KEY (`typevo_type_id`) REFERENCES `type` (`type_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `user`
---
-ALTER TABLE `user`
-  ADD CONSTRAINT `user_ibfk_1` FOREIGN KEY (`fk_city_id`) REFERENCES `city` (`city_id`) ON DELETE CASCADE ON UPDATE CASCADE;
