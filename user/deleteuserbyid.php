@@ -7,9 +7,8 @@
 	$query="delete from `user` where `user_id`=$user_id";
 	$result = mysqli_query($con,$query);
 
-	if($result)
+	if (mysqli_num_rows($result)>0)
 		$res['Message']='Data Deleted Successfully';
-	
 	else
 		$res['Message']='Data Not Deleted';
 	

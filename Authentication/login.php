@@ -4,7 +4,7 @@
 	$con=$obj->getConnection();
 	
 	$jsonObj = json_decode(file_get_contents("php://input"));
-		
+	
 	$user_email = $jsonObj->user_email;
 	$user_password = $jsonObj->user_password;	
 	
@@ -12,11 +12,13 @@
 	
 	$result = mysqli_query($con,$query);
 	
-	if($result) {
+	if (mysqli_num_rows($result)>0) {
 		$res['Message']='User Logged in Successfully';
+		$res['res']='True';
 	}
 	else{	
 		$res['Message']='User Not Logged in Successfully';
+		$res['res']='False';
 	}
 	
 	echo json_encode($res);

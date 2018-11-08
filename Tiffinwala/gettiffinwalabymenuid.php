@@ -3,8 +3,8 @@
 	$obj=new Database();
 	$con=$obj->getConnection();
 
-	$user_id=isset($_GET['id']) ? $_GET['id'] : die();
-	$query="SELECT * from user where user_id='$user_id'";
+	$tiffin_id=isset($_GET['id']) ? $_GET['id'] : die();
+	$query="SELECT t.*,tm.* FROM tiffinwala as t, tiffin_menu as tm where t.tiffin_id=tm.tiffinvo_tiffin_id and t.tiffin_id='$tiffin_id'";
 
 	$jsonObj=array();
 	$res=mysqli_query($con,$query);

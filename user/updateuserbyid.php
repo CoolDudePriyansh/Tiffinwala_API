@@ -13,9 +13,8 @@
 	
 	$result = mysqli_query($con,$query);
 
-	if($result) {
+	if (mysqli_num_rows($result)>0)
 		$res['Message']='Data Updated Successfully';
-	}
 	else
 		$res['Message']='Data Not Updated';
 	
