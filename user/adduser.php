@@ -19,9 +19,8 @@
 	
 	$result = mysqli_query($con,$query);
 
-	if($result) {
+	if($result) 
 		$res['Message']='Data Inserted Successfully';
-	}
 	else
 		$res['Message']='Data Not Inserted';
 	

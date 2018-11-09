@@ -14,13 +14,17 @@
 	
 	if (mysqli_num_rows($result)>0) {
 		$res['Message']='User Logged in Successfully';
-		$res['res']='True';
+		$res['status']='True';
 	}
 	else{	
 		$res['Message']='User Not Logged in Successfully';
-		$res['res']='False';
+		$res['status']='False';
 	}
 	
 	echo json_encode($res);
 	mysqli_close($con);
 ?>
+<!--{
+    "user_email": "lalsthecake@gmail.com",
+    "user_password": "darshil"
+}-->
