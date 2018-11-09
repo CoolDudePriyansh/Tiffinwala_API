@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 06, 2018 at 04:39 AM
+-- Generation Time: Nov 09, 2018 at 10:42 AM
 -- Server version: 5.5.8
 -- PHP Version: 5.3.5
 
@@ -58,21 +58,25 @@ CREATE TABLE IF NOT EXISTS `order` (
   `quantity` int(11) NOT NULL,
   `amount` int(11) NOT NULL,
   `date` varchar(255) NOT NULL,
-  `fk_city_id` int(11) NOT NULL,
   `order_flag` int(11) NOT NULL,
   PRIMARY KEY (`order_id`),
   KEY `fk_tiffin_id` (`fk_tiffin_id`),
   KEY `fk_user_id` (`fk_user_id`),
-  KEY `fk_menu_id` (`fk_menu_id`),
-  KEY `fk_city_id` (`fk_city_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+  KEY `fk_menu_id` (`fk_menu_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
 
 --
 -- Dumping data for table `order`
 --
 
-INSERT INTO `order` (`order_id`, `address`, `fk_tiffin_id`, `fk_user_id`, `fk_menu_id`, `quantity`, `amount`, `date`, `fk_city_id`, `order_flag`) VALUES
-(1, 'Paldi', 1, 2, 1, 5, 350, '30-10-2018', 6, 1);
+INSERT INTO `order` (`order_id`, `address`, `fk_tiffin_id`, `fk_user_id`, `fk_menu_id`, `quantity`, `amount`, `date`, `order_flag`) VALUES
+(1, 'Paldi', 1, 2, 1, 5, 350, '30-10-2018', 1),
+(8, 'Reliance Cross Roads', 1, 13, 1, 3, 210, '08-11-2018', 1),
+(9, 'Reliance Cross Roads', 1, 13, 1, 3, 210, '08-11-2018', 1),
+(10, 'Reliance Cross Roads', 1, 13, 1, 3, 210, '08-11-2018', 1),
+(11, 'Reliance Cross Roads', 1, 13, 1, 3, 210, '08-11-2018', 1),
+(13, 'Reliance Cross Roads', 1, 13, 1, 3, 210, '08-11-2018', 1),
+(14, 'Reliance Cross Roads', 1, 15, 1, 3, 210, '08-11-2018', 1);
 
 -- --------------------------------------------------------
 
@@ -102,7 +106,8 @@ CREATE TABLE IF NOT EXISTS `tiffinwala` (
 --
 
 INSERT INTO `tiffinwala` (`tiffin_id`, `tiffin_address`, `tiffin_email`, `tiffin_flag`, `tiffin_mobile`, `tiffin_name`, `tiffin_pincode`, `cityvo_city_id`, `uservo_user_id`) VALUES
-(1, 'Kudasan, Gandhinagar', 'jayjalaram@gmail.com', 1, 2147483647, 'Jay Jalaram', 380007, 6, 2);
+(1, 'Kudasan, Gandhinagar', 'jayjalaram@gmail.com', 1, 2147483647, 'Jay Jalaram', 380007, 6, 2),
+(2, 'sp', 'sp@gmail.com', 1, 1234, 'sp', 380007, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -180,15 +185,6 @@ INSERT INTO `user` (`user_id`, `image`, `user_email`, `user_flag`, `user_mobile`
 --
 -- Constraints for dumped tables
 --
-
---
--- Constraints for table `order`
---
-ALTER TABLE `order`
-  ADD CONSTRAINT `order_ibfk_5` FOREIGN KEY (`fk_tiffin_id`) REFERENCES `tiffinwala` (`tiffin_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `order_ibfk_6` FOREIGN KEY (`fk_user_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `order_ibfk_7` FOREIGN KEY (`fk_menu_id`) REFERENCES `tiffin_menu` (`tiffinvo_tiffin_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `order_ibfk_8` FOREIGN KEY (`fk_city_id`) REFERENCES `city` (`city_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `tiffinwala`
