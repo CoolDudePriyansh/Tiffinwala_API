@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 09, 2018 at 10:42 AM
+-- Generation Time: Nov 11, 2018 at 10:08 AM
 -- Server version: 5.5.8
 -- PHP Version: 5.3.5
 
@@ -91,6 +91,7 @@ CREATE TABLE IF NOT EXISTS `tiffinwala` (
   `tiffin_flag` int(11) DEFAULT NULL,
   `tiffin_mobile` int(11) DEFAULT NULL,
   `tiffin_name` varchar(255) DEFAULT NULL,
+  `image` varchar(255) NOT NULL,
   `tiffin_pincode` int(11) DEFAULT NULL,
   `cityvo_city_id` int(11) DEFAULT NULL,
   `uservo_user_id` int(11) DEFAULT NULL,
@@ -105,9 +106,8 @@ CREATE TABLE IF NOT EXISTS `tiffinwala` (
 -- Dumping data for table `tiffinwala`
 --
 
-INSERT INTO `tiffinwala` (`tiffin_id`, `tiffin_address`, `tiffin_email`, `tiffin_flag`, `tiffin_mobile`, `tiffin_name`, `tiffin_pincode`, `cityvo_city_id`, `uservo_user_id`) VALUES
-(1, 'Kudasan, Gandhinagar', 'jayjalaram@gmail.com', 1, 2147483647, 'Jay Jalaram', 380007, 6, 2),
-(2, 'sp', 'sp@gmail.com', 1, 1234, 'sp', 380007, 1, 1);
+INSERT INTO `tiffinwala` (`tiffin_id`, `tiffin_address`, `tiffin_email`, `tiffin_flag`, `tiffin_mobile`, `tiffin_name`, `image`, `tiffin_pincode`, `cityvo_city_id`, `uservo_user_id`) VALUES
+(1, 'Kudasan, Gandhinagar', 'jayjalaram@gmail.com', 1, 2147483647, 'Jay Jalaram', 'C:\\wamp\\www\\Tiffinwala_API\\Images\\jayjalaram.jpg', 380007, 6, 2);
 
 -- --------------------------------------------------------
 
@@ -163,24 +163,28 @@ INSERT INTO `type` (`type_id`, `type_name`) VALUES
 
 CREATE TABLE IF NOT EXISTS `user` (
   `user_id` int(11) NOT NULL AUTO_INCREMENT,
-  `image` varchar(255) DEFAULT NULL,
   `user_email` varchar(255) DEFAULT NULL,
   `user_flag` int(11) DEFAULT NULL,
   `user_mobile` int(255) DEFAULT NULL,
   `user_name` varchar(255) DEFAULT NULL,
   `user_password` varchar(255) DEFAULT NULL,
+  `user_address` varchar(255) NOT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=24 ;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`user_id`, `image`, `user_email`, `user_flag`, `user_mobile`, `user_name`, `user_password`) VALUES
-(1, 'Paldi, Ahmedabad', 'lalsthecake@gmail.com', 1, 2147483647, 'Vadil_Mehta', 'darshil'),
-(2, 'Kudasan, Gandhinagar', 'nileshthakkar@gmail.com', 1, 2147483647, 'Nilesh_Thakkar', 'nilesh'),
-(13, 'Priyansh', 'priyanshsheth1997@gmail.com', 3, 123, 'Priyansh', '123'),
-(15, 'Paldi, Ahmedabad', 'lalsthecake@gmail.com', 2, 2147483647, 'Vadil_Mehta', 'darshil');
+INSERT INTO `user` (`user_id`, `user_email`, `user_flag`, `user_mobile`, `user_name`, `user_password`, `user_address`) VALUES
+(2, 'nileshthakkar@gmail.com', 1, 2147483647, 'Nilesh_Thakkar', 'nilesh', ''),
+(13, 'priyanshsheth1997@gmail.com', 3, 123, 'Priyansh_sp', '12', 'Paldi Ahmedabad'),
+(15, 'lalsthecake@gmail.com', 2, 2147483647, 'Vadil_Mehta', 'darshil', ''),
+(19, 'sp@gmail.com', 1, 123, 'sp', '12', ''),
+(20, 'sp@gmail.com', 1, 123, 'sp', '12', 'Paldi Ahmedabad'),
+(21, 'sp@gmail.com', 1, 123, 'sp', '12', 'Paldi Ahmedabad'),
+(22, 'sp@gmail.com', 1, 123, 'sp', '12', 'Paldi Ahmedabad'),
+(23, 'sp@gmail.com', 1, 123, 'sp', '12', 'Paldi Ahmedabad');
 
 --
 -- Constraints for dumped tables
