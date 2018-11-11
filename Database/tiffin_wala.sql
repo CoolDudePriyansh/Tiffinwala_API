@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 11, 2018 at 10:08 AM
+-- Generation Time: Nov 11, 2018 at 10:14 AM
 -- Server version: 5.5.8
 -- PHP Version: 5.3.5
 
@@ -185,21 +185,3 @@ INSERT INTO `user` (`user_id`, `user_email`, `user_flag`, `user_mobile`, `user_n
 (21, 'sp@gmail.com', 1, 123, 'sp', '12', 'Paldi Ahmedabad'),
 (22, 'sp@gmail.com', 1, 123, 'sp', '12', 'Paldi Ahmedabad'),
 (23, 'sp@gmail.com', 1, 123, 'sp', '12', 'Paldi Ahmedabad');
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `tiffinwala`
---
-ALTER TABLE `tiffinwala`
-  ADD CONSTRAINT `tiffinwala_ibfk_1` FOREIGN KEY (`cityvo_city_id`) REFERENCES `city` (`city_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tiffinwala_ibfk_2` FOREIGN KEY (`uservo_user_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `tiffin_menu`
---
-ALTER TABLE `tiffin_menu`
-  ADD CONSTRAINT `tiffin_menu_ibfk_1` FOREIGN KEY (`tiffinvo_tiffin_id`) REFERENCES `tiffinwala` (`tiffin_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tiffin_menu_ibfk_2` FOREIGN KEY (`typevo_type_id`) REFERENCES `type` (`type_id`) ON DELETE CASCADE ON UPDATE CASCADE;
