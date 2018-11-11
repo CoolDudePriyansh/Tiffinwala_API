@@ -5,7 +5,6 @@
 	
 	$jsonObj = json_decode(file_get_contents("php://input"));
 		
-	$image = $jsonObj->image;	
 	$user_email = $jsonObj->user_email;
 	$user_flag = $jsonObj->user_flag;
 	$user_mobile = $jsonObj->user_mobile;
@@ -13,7 +12,7 @@
 	$user_password = $jsonObj->user_password;
 	$user_address = $jsonObj->user_address;
 	
-	$query="INSERT INTO `user`(`image`, `user_email`, `user_flag` , `user_mobile` , `user_name` , `user_password`, `user_address`) VALUES ('$image', '$user_email', $user_flag, '$user_mobile', '$user_name', '$user_password', '$user_address')";
+	$query="INSERT INTO `user`(`user_email`, `user_flag` , `user_mobile` , `user_name` , `user_password`, `user_address`) VALUES ('$user_email', $user_flag, '$user_mobile', '$user_name', '$user_password', '$user_address')";
 	
 	$result = mysqli_query($con,$query);
 
