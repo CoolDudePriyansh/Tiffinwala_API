@@ -14,7 +14,7 @@
 	$date="08-11-2018";
 	$order_flag=1;
 	
-	$query="INSERT INTO `order`(`address`, `fk_tiffin_id`, `fk_user_id` , `fk_menu_id` , `quantity` , `amount` , `date`,`order_flag`) VALUES 
+	$query="INSERT INTO `order`(`address`, `fk_tiffin_id`, `fk_user_id` , `fk_menu_id` , `quantity` , `amount` , `date`,`order_flag`) VALUES
 	('$address', $fk_tiffin_id, $fk_user_id, $fk_menu_id, $quantity, $amount, '$date', $order_flag)";
 	
 	$result = mysqli_query($con,$query);

@@ -15,6 +15,9 @@
 	if (mysqli_num_rows($result)>0) {
 		$res['Message']='User Logged in Successfully';
 		$res['status']='True';
+		while($row = mysqli_fetch_assoc($result))
+			$res['data']=$row;
+		
 	}
 	else{	
 		$res['Message']='User Not Logged in Successfully';
@@ -24,7 +27,3 @@
 	echo json_encode($res);
 	mysqli_close($con);
 ?>
-<!--{
-    "user_email": "lalsthecake@gmail.com",
-    "user_password": "darshil"
-}-->
