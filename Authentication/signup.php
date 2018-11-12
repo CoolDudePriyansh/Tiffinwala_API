@@ -13,7 +13,7 @@
 	$user_password = $_POST['user_password'];;
 	$user_address = $_POST['user_address'];;
 	
-	$query="INSERT INTO `user`(`image`, `user_email`, `user_flag` , `user_mobile` , `user_name` , `user_password`, `user_address`) VALUES ('$image', '$user_email', $user_flag, '$user_mobile', '$user_name', '$user_password', '$user_address')";
+	$query="INSERT INTO `user`(`user_email`, `user_flag` , `user_mobile` , `user_name` , `user_password`, `user_address`) VALUES ('$user_email', $user_flag, '$user_mobile', '$user_name', '$user_password', '$user_address')";
 	
 	$result = mysqli_query($con,$query);
 
