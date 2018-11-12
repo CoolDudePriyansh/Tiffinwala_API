@@ -5,7 +5,6 @@
 	
 	$jsonObj = json_decode(file_get_contents("php://input"));
 		
-	$image = "";
 	$user_email = $_POST['user_email'];
 	$user_flag = $_POST['user_flag'];;
 	$user_mobile = $_POST['user_mobile'];;

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 12, 2018 at 12:27 PM
+-- Generation Time: Nov 12, 2018 at 01:12 PM
 -- Server version: 5.5.8
 -- PHP Version: 5.3.5
 
@@ -161,7 +161,6 @@ INSERT INTO `type` (`type_id`, `type_name`) VALUES
 
 CREATE TABLE IF NOT EXISTS `user` (
   `user_id` int(11) NOT NULL AUTO_INCREMENT,
-  `image` varchar(255) NOT NULL,
   `user_email` varchar(255) DEFAULT NULL,
   `user_flag` int(11) DEFAULT NULL,
   `user_mobile` varchar(255) DEFAULT NULL,
@@ -175,7 +174,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`user_id`, `image`, `user_email`, `user_flag`, `user_mobile`, `user_name`, `user_password`, `user_address`) VALUES
-(1, '', 'darshilmehta09@gmail.com', 2, '84848484', 'Darshil_Mehta', 'darshil', 'Bhavna'),
-(2, '', 'nileshthakkar@gmail.com', 2, '12122', 'Nilesh_Thakkar', 'nilesh', 'Reliance'),
-(3, '', 'priyanshsheth1997@gmail.com', 1, '123', 'Priyansh_sp', '12', 'SPpp');
+INSERT INTO `user` (`user_id`, `user_email`, `user_flag`, `user_mobile`, `user_name`, `user_password`, `user_address`) VALUES
+(1, 'darshilmehta09@gmail.com', 2, '84848484', 'Darshil_Mehta', 'darshil', 'Bhavna'),
+(2, 'nileshthakkar@gmail.com', 2, '12122', 'Nilesh_Thakkar', 'nilesh', 'Reliance'),
+(3, 'priyanshsheth1997@gmail.com', 1, '123', 'Priyansh_sp', '12', 'SPpp');
