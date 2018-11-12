@@ -5,12 +5,19 @@
 	
 	$jsonObj = json_decode(file_get_contents("php://input"));
 	
-	$fk_tiffin_id = $jsonObj->fk_tiffin_id;
+	/* $fk_tiffin_id = $jsonObj->fk_tiffin_id;
 	$fk_user_id = $jsonObj->fk_user_id;
 	$fk_menu_id = $jsonObj->fk_menu_id;
 	$quantity = $jsonObj->quantity;
 	$amount = $jsonObj->amount;
-	$user_address = $jsonObj->user_address;
+	$user_address = $jsonObj->user_address; */
+	
+	$fk_tiffin_id = $_POST['fk_tiffin_id'];
+	$fk_user_id = $_POST['fk_user_id'];
+	$fk_menu_id = $_POST['fk_menu_id'];
+	$quantity = $_POST['quantity'];
+	$amount = $_POST['amount'];
+	$user_address = $_POST['user_address'];
 	$date="08-11-2018";
 	$order_flag=1;
 	

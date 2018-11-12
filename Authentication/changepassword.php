@@ -6,8 +6,11 @@
 	$user_id=isset($_GET['id']) ? $_GET['id'] : die();
 	$jsonObj = json_decode(file_get_contents("php://input"));
 	
-	$old_password = $jsonObj->old_password;
-	$new_password = $jsonObj->new_password;
+	/* $old_password = $jsonObj->old_password;
+	$new_password = $jsonObj->new_password;	*/
+	
+	$old_password = $_POST['old_password'];
+	$new_password = $_POST['new_password'];
 	
 	$query="SELECT * from user where `user_password`='$old_password' and `user_id`=$user_id";
 	$result = mysqli_query($con,$query);
@@ -23,7 +26,7 @@
 		}
 		else {
 			$res['Message']='Something went Wrong';
-			$res['Message']='False';
+			$res['status']='False';
 		}
 	}
 	else{

@@ -6,17 +6,25 @@
 	$user_id=isset($_GET['id']) ? $_GET['id'] : die();
 	$jsonObj = json_decode(file_get_contents("php://input"));
 		
-	$user_mobile = $jsonObj->user_mobile;
+	/* $user_mobile = $jsonObj->user_mobile;
 	$user_name = $jsonObj->user_name;
-	$user_address = $jsonObj->user_address;
+	$user_address = $jsonObj->user_address; */
+	
+	$user_mobile = $_POST['user_mobile'];
+	$user_name = $_POST['user_name'];
+	$user_address = $_POST['user_address'];
 	
 	$query="update `user` set `user_mobile`='$user_mobile', `user_name`='$user_name', `user_address`='$user_address' where `user_id`=$user_id";
 	$result = mysqli_query($con,$query);
 
-	if ($result)
+	if ($result){
 		$res['Message']='Profile Updated Successfully';
-	else
+		$res['status']='True';
+	}
+	else{
 		$res['Message']='Profile Not Updated';
+		$res['status']='False';
+	}
 	
 	echo json_encode($res);
 	mysqli_close($con);

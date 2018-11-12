@@ -5,13 +5,13 @@
 	
 	$jsonObj = json_decode(file_get_contents("php://input"));
 		
-	$image = $jsonObj->image;	
-	$user_email = $jsonObj->user_email;
-	$user_flag = $jsonObj->user_flag;
-	$user_mobile = $jsonObj->user_mobile;
-	$user_name = $jsonObj->user_name;
-	$user_password = $jsonObj->user_password;
-	$user_address = $jsonObj->user_address;
+	$image = "";
+	$user_email = $_POST['user_email'];
+	$user_flag = $_POST['user_flag'];;
+	$user_mobile = $_POST['user_mobile'];;
+	$user_name = $_POST['user_name'];;
+	$user_password = $_POST['user_password'];;
+	$user_address = $_POST['user_address'];;
 	
 	$query="INSERT INTO `user`(`image`, `user_email`, `user_flag` , `user_mobile` , `user_name` , `user_password`, `user_address`) VALUES ('$image', '$user_email', $user_flag, '$user_mobile', '$user_name', '$user_password', '$user_address')";
 	
