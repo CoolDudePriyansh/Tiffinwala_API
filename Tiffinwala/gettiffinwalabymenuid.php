@@ -6,7 +6,6 @@
 	$tiffin_id=isset($_GET['id']) ? $_GET['id'] : die();
 	$date = new DateTime('now', new DateTimeZone('Asia/Kolkata')); 
 	$hour=$date->format('H');
-	$hour=20;
 	$jsonObj=array();
 	
 	if($hour>=10 && $hour <=16){
