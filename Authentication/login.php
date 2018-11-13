@@ -3,11 +3,11 @@
 	$obj=new Database();
 	$con=$obj->getConnection();
 	
-	/*$jsonObj = json_decode(file_get_contents("php://input"));
+	$jsonObj = json_decode(file_get_contents("php://input"));
 	$user_email = $jsonObj->user_email;
-	$user_password = $jsonObj->user_password;*/
-	$user_email = $_POST['user_email'];
-	$user_password = $_POST['user_password'];
+	$user_password = $jsonObj->user_password;
+	/*$user_email = $_POST['user_email'];
+	$user_password = $_POST['user_password'];*/
 	
 	$query="SELECT * from user where `user_email`='$user_email' and `user_password`='$user_password' and user_flag=3";
 	$result = mysqli_query($con,$query);
