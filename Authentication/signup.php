@@ -26,7 +26,7 @@
 		$res['Message']='User Registered Successfully';
 		$res['status']='True';
 		
-		$query="SELECT * from user where `user_email`='$user_email' and `user_password`='$user_password'";
+		$query="SELECT * from user where `user_email`='$user_email' and `user_password`='$user_password' and user_flag=3";
 		$result = mysqli_query($con,$query);
 		while($row = mysqli_fetch_assoc($result))
 			$res['data']=$row;

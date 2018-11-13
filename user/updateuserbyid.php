@@ -13,7 +13,7 @@
 	$user_name = $_POST['user_name'];
 	$user_address = $_POST['user_address'];
 	
-	$query="update `user` set `user_mobile`='$user_mobile', `user_name`='$user_name', `user_address`='$user_address' where `user_id`=$user_id";
+	$query="update `user` set `user_mobile`='$user_mobile', `user_name`='$user_name', `user_address`='$user_address' where `user_id`=$user_id and user_flag=3";
 	$result = mysqli_query($con,$query);
 
 	if ($result){

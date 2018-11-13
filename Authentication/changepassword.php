@@ -12,11 +12,11 @@
 	$old_password = $_POST['old_password'];
 	$new_password = $_POST['new_password'];
 	
-	$query="SELECT * from user where `user_password`='$old_password' and `user_id`=$user_id";
+	$query="SELECT * from user where `user_password`='$old_password' and `user_id`=$user_id and user_flag=3";
 	$result = mysqli_query($con,$query);
 	
 	if (mysqli_num_rows($result)>0) {
-		$query="update `user` set `user_password`='$new_password' where `user_id`=$user_id";
+		$query="update `user` set `user_password`='$new_password' where `user_id`=$user_id and user_flag=3";
 		
 		$result = mysqli_query($con,$query);
 

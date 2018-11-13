@@ -4,7 +4,7 @@
 	$con=$obj->getConnection();
 
 	$user_id=isset($_GET['id']) ? $_GET['id'] : die();
-	$query="SELECT * from user where user_id='$user_id'";
+	$query="SELECT * from user where user_id='$user_id' and user_flag=3";
 
 	$jsonObj=array();
 	$res=mysqli_query($con,$query);
@@ -15,7 +15,7 @@
 			$jsonObj[]=$row;
 	}
 	else
-		$jsonObj['message']='Records not found';
+		$jsonObj['message']='Records not found for User';
 	
 	echo json_encode($jsonObj);
 	mysqli_close($con);
