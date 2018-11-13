@@ -3,7 +3,7 @@
 	$obj=new Database();
 	$con=$obj->getConnection();
 
-	$query="SELECT * from tiffinwala";
+	$query="SELECT * from tiffinwala where tiffin_flag=1";
 
 	$jsonObj=array();
 	$res=mysqli_query($con,$query);

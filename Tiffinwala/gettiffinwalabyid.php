@@ -4,7 +4,7 @@
 	$con=$obj->getConnection();
 
 	$tiffin_id=isset($_GET['id']) ? $_GET['id'] : die();
-	$query="SELECT * from tiffinwala where tiffin_id='$tiffin_id'";
+	$query="SELECT * from tiffinwala where tiffin_id='$tiffin_id' and tiffin_flag=1";
 
 	$jsonObj=array();
 	$res=mysqli_query($con,$query);

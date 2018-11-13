@@ -4,9 +4,8 @@
 	$con=$obj->getConnection();
 	
 	$user_id=isset($_GET['id']) ? $_GET['id'] : die();
-	$jsonObj = json_decode(file_get_contents("php://input"));
-		
-	/* $user_mobile = $jsonObj->user_mobile;
+	/*$jsonObj = json_decode(file_get_contents("php://input"));
+	$user_mobile = $jsonObj->user_mobile;
 	$user_name = $jsonObj->user_name;
 	$user_address = $jsonObj->user_address; */
 	
