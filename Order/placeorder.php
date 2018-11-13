@@ -3,7 +3,7 @@
 	$obj=new Database();
 	$con=$obj->getConnection();
 	
-	$jsonObj = json_decode(file_get_contents("php://input"));
+	//$jsonObj = json_decode(file_get_contents("php://input"));
 	
 	/*$tiffinvo_tiffin_id = $jsonObj->tiffinvo_tiffin_id;
 	$uservo_user_id = $jsonObj->uservo_user_id;
@@ -18,10 +18,10 @@
 	$quantity = $_POST['quantity'];
 	$amount = $_POST['amount'];
 	$user_address = $_POST['user_address'];
-	$date="08-11-2018";
+	$date=date("d-m-Y");
 	$order_flag=1;
 	
-	$query="update `user` set `user_address`='$user_address' where `user_id`='$uservo_user_id'";
+	$query="update `user` set `user_address`='$user_address' where `user_id`='$uservo_user_id' and user_flag=3";
 	mysqli_query($con,$query);
 	
 	$query="INSERT INTO `order_item`(`tiffinvo_tiffin_id`, `uservo_user_id` , `menuvo_menu_id` , `quantity` , `amount`, `date`, `order_flag`) VALUES
